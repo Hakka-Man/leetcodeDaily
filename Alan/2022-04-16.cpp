@@ -2,7 +2,7 @@
 #include <unordered_map>
 class Solution {
 public:
-    int singleNumber(vector<int>& nums) {
+    int singleNumber(std::vector<int>& nums) {
         std::unordered_map<int,int> count;
         for(int num:nums){
             count[num] ++;
