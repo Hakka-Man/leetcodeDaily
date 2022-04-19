@@ -7,6 +7,8 @@ public class FindPivotIndex724 {
         System.out.println(result);
     }
 
+    /* bad approach */
+    /*
     public static int pivotIndex(int[] nums) {
         for (int i = 0; i < nums.length; i++) {
             int leftSum = 0;
@@ -20,6 +22,23 @@ public class FindPivotIndex724 {
             if (rightSum == leftSum) {
                 return i;
             }
+        }
+        return -1;
+    }
+    */
+
+    /* better approach */
+    public static int pivotIndex(int[] nums) {
+        int sum = 0;
+        int leftSum = 0;
+        for (Integer i : nums) {
+            sum += i;
+        }
+        for (int i = 0; i < nums.length; i++) {
+            if (leftSum == sum - leftSum - nums[i]) {
+                return i;
+            }
+            leftSum += nums[i];
         }
         return -1;
     }
